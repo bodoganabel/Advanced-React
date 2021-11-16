@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+, "pages/_document.js"  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "paths": {
+    "public/*": [
+      "public/*"
+    ],
+    "pages/*": [
+      "pages/*"
+    ],
+    "components/*": [
+      "components/*"
+    ]
+  }
+}
