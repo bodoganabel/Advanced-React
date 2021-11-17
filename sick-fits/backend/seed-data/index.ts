@@ -4,9 +4,14 @@ export async function insertSeedData(ks: any) {
   // Keystone API changed, so we need to check for both versions to get keystone
   const keystone = ks.keystone || ks;
   const adapter = keystone.adapters?.MongooseAdapter || keystone.adapter;
+  const { mongoose } = adapter;
+
+  console.log(`❌❌ Removing all product...`);
+  await mongoose.model('ProductImage').deleteMany({});
+  await mongoose.model('Product').deleteMany({});
+
 
   console.log(`🌱 Inserting Seed Data: ${products.length} Products`);
-  const { mongoose } = adapter;
   for (const product of products) {
     console.log(`  🛍️ Adding Product: ${product.name}`);
     const { _id } = await mongoose

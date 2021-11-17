@@ -1,4 +1,4 @@
-import { integer, select, text } from "@keystone-next/fields";
+import { integer, relationship, select, text } from "@keystone-next/fields";
 import { list } from "@keystone-next/keystone/schema";
 
 enum EProductStatuses {
@@ -19,17 +19,31 @@ export const Product = list({
     }),
     status: select({
       options: [
-        { label: 'Draft', value: EProductStatuses.DRAFT},
-        { label: 'Available', value: EProductStatuses.AVAILABLE},
-        { label: 'Unavailable', value: EProductStatuses.UNAVAILABLE},
+        { label: 'Draft', value: EProductStatuses.DRAFT },
+        { label: 'Available', value: EProductStatuses.AVAILABLE },
+        { label: 'Unavailable', value: EProductStatuses.UNAVAILABLE },
       ],
       defaultValue: EProductStatuses.DRAFT,
       ui: {
         displayMode: 'segmented-control',
         createView: { fieldMode: 'hidden' },
-      }
+      },
     }),
     priceCents: integer(),
-    // TODO: Photo
+    photo: relationship({
+      ref: 'ProductImage.product',
+      ui: {
+        displayMode: 'cards',
+        cardFields: ['image', 'altText'],
+        inlineCreate: { fields: ['image', 'altText'] },
+        inlineEdit: { fields: ['image', 'altText'] },
+        inlineConnect: true,
+      }
+    }),
+  },
+  ui: {
+    listView: {
+      initialColumns: ['name','status','photo','priceCents', 'description', ]
+    }
   }
 })
