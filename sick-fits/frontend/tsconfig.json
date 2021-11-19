@@ -18,6 +18,7 @@
       "dom.iterable",
       "esnext"
     ],
+    "checkJs": true,
     "allowJs": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,

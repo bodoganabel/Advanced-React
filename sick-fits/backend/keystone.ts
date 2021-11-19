@@ -41,6 +41,7 @@ export default withAuth(config({
 
     },
   },
+  graphql: {},
   lists: createSchema({
     //schema items go in here
     User,
