@@ -1,10 +1,17 @@
 
 export function formatMoney(amount = 0) {
-  const formatter = new Intl.NumberFormat('en-US', {
+
+  const options = {
     style: 'currency',
     currency: 'USD',
     minimumFractionDigits: 2,
-  });
+  }
+
+  if (amount % 100 === 0) {
+    options.minimumFractionDigits = 0;
+  }
   
-    return formatter.format(amount);
+  const formatter = new Intl.NumberFormat('en-US', options);
+
+  return formatter.format(amount);
 }
