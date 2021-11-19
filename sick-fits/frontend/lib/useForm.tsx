@@ -7,11 +7,11 @@ export default function useForm(initial:any = {}) {
   
   function handleChange(e) {
     const { name, type, value } = e.target;
-    let parsedValue: string | number | File[];
+    let parsedValue: string | number | File;
     if (type === 'number') {
       parsedValue = parseInt(value, 10);
     } else if (type === 'file') {
-      parsedValue[0] = e.target.files;
+      [parsedValue] = e.target.files;
     } else {
       parsedValue = value;
     }
