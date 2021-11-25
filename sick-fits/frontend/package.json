@@ -37,6 +37,7 @@
     "react-dom": "^17.0.1",
     "react-transition-group": "^4.4.1",
     "styled-components": "^5.2.1",
+    "use-client-router": "^1.0.4",
     "waait": "^1.0.5"
   },
   "devDependencies": {

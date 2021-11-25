@@ -15,11 +15,13 @@ export const ProductImage = list({
 
     }),
     altText: text(),
-    product: relationship({ref: 'Product.photo'})
+    product: relationship({ ref: 'Product.photo' })
+    
   },
   ui: {
     listView: {
       initialColumns: ['image', 'altText','product']
-    }
+    },
+    labelField: 'altText' ,
   }
 })

@@ -5,8 +5,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 import Product from './Product';
 
 
-const ALL_PRODUCTS_QUERY = gql`
-  query{
+export const ALL_PRODUCTS_QUERY = gql`
+  query AllProducts{
     allProducts {
       id
       name

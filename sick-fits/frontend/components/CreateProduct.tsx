@@ -1,16 +1,20 @@
 import useForm from 'lib/useForm';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import Router from 'next/router';
 import Form from 'components/styles/Form';
 import DisplayError from 'components/ErrorMessage';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
+import { ALL_PRODUCTS_QUERY } from './Products';
+
+
 export default function CreateProduct() {
 
 
   const CREATE_PRODUCT_MUTATION = gql`
-  mutation(
+  mutation CreateProduct(
     $name: String!,
-    $priceCents: Number!,
+    $priceCents: Int!,
     $description: String!,
     $image: Upload,
    ) {
@@ -37,31 +41,37 @@ export default function CreateProduct() {
   const { inputs, handleChange, clearForm, resetForm } = useForm({
     name: 'TestName',
     image:'',
-    price: 3400,
+    priceCents: 3400,
     description: 'Test description',
   });
 
-  const [createProduct, {loading, error, data}] = useMutation(CREATE_PRODUCT_MUTATION)
+  const [createProduct, { loading, error, data }] = useMutation(CREATE_PRODUCT_MUTATION, {
+    variables: inputs,
+    refetchQueries: [{ query: ALL_PRODUCTS_QUERY }]
+  })
 
   return (
     <Form
       onSubmit={async (e) => {
         console.log(inputs);
         e.preventDefault();
-        console.log(await createProduct({variables: inputs}));
+        const res = await createProduct();
+        clearForm();
+        Router.push(`/product/${res.data.createProduct.id}`)
       }
     }
     >
       <DisplayError error={error}></DisplayError>
       <fieldset disabled={loading} aria-busy={loading}>
+        <label htmlFor="image">Image</label>
+        <input required type="file" name="image" id="image" onChange={handleChange} />
+
         <label htmlFor="name">Name</label>
         <input required type="text" name="name" id="name" placeholder="Name" value={inputs.name} onChange={handleChange} />
 
-        <label htmlFor="image">Image</label>
-        <input required type="file" name="image" id="image" placeholder="image" onChange={handleChange} />
         
         <label htmlFor="price">Price</label>
-        <input required type="number" name="price" id="price" placeholder="price" value={inputs.price} onChange={handleChange} />
+        <input required type="number" name="priceCents" id="priceCents" placeholder="priceCents" value={inputs.priceCents} onChange={handleChange} />
         
         <label htmlFor="description">Description</label>
         <textarea name="description" id="description" placeholder="description" value={inputs.description} onChange={handleChange} />
