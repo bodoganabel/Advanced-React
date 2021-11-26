@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function useForm(initial:any = {}) {
 
   const [inputs, setinputs] = useState(initial);
 
-  
+  const initialValues = Object.values(initial).join('');
+
+  useEffect(() => {
+    setinputs(initial)
+  }, [initialValues])
+
+
   function handleChange(e) {
     const { name, type, value } = e.target;
     let parsedValue: string | number | File;

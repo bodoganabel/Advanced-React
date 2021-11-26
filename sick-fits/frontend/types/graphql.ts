@@ -35,6 +35,32 @@ export interface CreateProductVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: DeleteProductMutation
+// ====================================================
+
+export interface DeleteProductMutation_deleteProduct {
+  __typename: "Product";
+  id: string;
+  name: string | null;
+}
+
+export interface DeleteProductMutation {
+  /**
+   *  Delete a single Product item by ID. 
+   */
+  deleteProduct: DeleteProductMutation_deleteProduct | null;
+}
+
+export interface DeleteProductMutationVariables {
+  id: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: AllProducts
 // ====================================================
 
@@ -103,6 +129,37 @@ export interface SingleItem {
 
 export interface SingleItemVariables {
   id: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: UpdateSingleProduct
+// ====================================================
+
+export interface UpdateSingleProduct_updateProduct {
+  __typename: "Product";
+  id: string;
+  name: string | null;
+  description: string | null;
+  priceCents: number | null;
+}
+
+export interface UpdateSingleProduct {
+  /**
+   *  Update a single Product item by ID. 
+   */
+  updateProduct: UpdateSingleProduct_updateProduct | null;
+}
+
+export interface UpdateSingleProductVariables {
+  id: string;
+  name?: string | null;
+  description?: string | null;
+  price?: number | null;
 }
 
 /* tslint:disable */

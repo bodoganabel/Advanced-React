@@ -1,10 +1,10 @@
-import gql from "graphql-tag";
 import { useQuery } from "@apollo/client";
 import React from "react";
 import DisplayError from "./ErrorMessage";
 import { SingleItem, SingleItemVariables, SingleItem_Product } from "types/graphql";
 import Head from "next/Head"
 import styled from "styled-components"
+import { SINGLE_ITEM_QUERY } from "graphql/common-queries";
 
 const ProductStyles = styled.div`
   display: grid;
@@ -22,22 +22,7 @@ const ProductStyles = styled.div`
 `;
 
 
-const SINGLE_ITEM_QUERY = gql`# Write your query or mutation here
-query SingleItem($id: ID!){
-  Product (where: {
-    id: $id
-  }) {
-    name
-    priceCents
-    description
-    photo {
-      altText
-      image {
-        publicUrlTransformed
-      }
-    }
-  }
-}`;
+
 
 interface IProps {
   id: string;

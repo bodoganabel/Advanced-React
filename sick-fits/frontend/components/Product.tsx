@@ -4,6 +4,7 @@ import { ItemStyles } from './styles/ItemStyles.js'
 import { Title } from './styles/Title.js'
 import PriceTag from './styles/PriceTag'
 import {formatMoney} from 'lib/formatMoney'
+import DeleteProduct from './DeleteProduct'
 
 export default function Product({ product }) {
   console.log('product');
@@ -18,6 +19,16 @@ export default function Product({ product }) {
       </Title>
       <PriceTag>{formatMoney(product.priceCents)}</PriceTag>
       <p>{product.description}</p>
+      <div className="buttonList">
+        <Link href={
+          {
+            pathname: 'update',
+            query: {
+              id: product.id,
+            }
+          }}>Edit ✏</Link>
+        <DeleteProduct id={product.id}>Delete</DeleteProduct>
+      </div>
     </ItemStyles>
 
   )
