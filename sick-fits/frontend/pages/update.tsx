@@ -51,6 +51,7 @@ export default function UpdateProduct(props) {
   console.log('data');
   console.log(data);
 
+
   const { inputs, handleChange, clearForm, resetForm } = useForm(data.Product);
 
   return (
