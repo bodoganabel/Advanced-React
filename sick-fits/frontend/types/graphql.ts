@@ -113,6 +113,158 @@ export interface AllProducts {
   allProducts: (AllProducts_allProducts | null)[] | null;
 }
 
+export interface AllProductsVariables {
+  skip?: number | null;
+  first?: number | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: requestResetMutation
+// ====================================================
+
+export interface requestResetMutation_sendUserPasswordResetLink {
+  __typename: "SendUserPasswordResetLinkResult";
+  code: PasswordResetRequestErrorCode;
+  message: string;
+}
+
+export interface requestResetMutation {
+  sendUserPasswordResetLink: requestResetMutation_sendUserPasswordResetLink | null;
+}
+
+export interface requestResetMutationVariables {
+  email: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: resetMutation
+// ====================================================
+
+export interface resetMutation_redeemUserPasswordResetToken {
+  __typename: "RedeemUserPasswordResetTokenResult";
+  code: PasswordResetRedemptionErrorCode;
+  message: string;
+}
+
+export interface resetMutation {
+  redeemUserPasswordResetToken: resetMutation_redeemUserPasswordResetToken | null;
+}
+
+export interface resetMutationVariables {
+  email: string;
+  password: string;
+  token: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: signinMutation
+// ====================================================
+
+export interface signinMutation_authenticateUserWithPassword_UserAuthenticationWithPasswordSuccess_item {
+  __typename: "User";
+  id: string;
+  email: string | null;
+  name: string | null;
+}
+
+export interface signinMutation_authenticateUserWithPassword_UserAuthenticationWithPasswordSuccess {
+  __typename: "UserAuthenticationWithPasswordSuccess";
+  item: signinMutation_authenticateUserWithPassword_UserAuthenticationWithPasswordSuccess_item;
+}
+
+export interface signinMutation_authenticateUserWithPassword_UserAuthenticationWithPasswordFailure {
+  __typename: "UserAuthenticationWithPasswordFailure";
+  code: PasswordAuthErrorCode;
+  message: string;
+}
+
+export type signinMutation_authenticateUserWithPassword = signinMutation_authenticateUserWithPassword_UserAuthenticationWithPasswordSuccess | signinMutation_authenticateUserWithPassword_UserAuthenticationWithPasswordFailure;
+
+export interface signinMutation {
+  authenticateUserWithPassword: signinMutation_authenticateUserWithPassword;
+}
+
+export interface signinMutationVariables {
+  email: string;
+  password: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: signOutMutation
+// ====================================================
+
+export interface signOutMutation {
+  endSession: boolean;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: signUpMutation
+// ====================================================
+
+export interface signUpMutation_createUser {
+  __typename: "User";
+  id: string;
+  email: string | null;
+  name: string | null;
+}
+
+export interface signUpMutation {
+  /**
+   *  Create a single User item. 
+   */
+  createUser: signUpMutation_createUser | null;
+}
+
+export interface signUpMutationVariables {
+  email: string;
+  name: string;
+  password: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: CurrentUserQuery
+// ====================================================
+
+export interface CurrentUserQuery_authenticatedItem {
+  __typename: "User";
+  id: string;
+  email: string | null;
+}
+
+export interface CurrentUserQuery {
+  authenticatedItem: CurrentUserQuery_authenticatedItem | null;
+}
+
 /* tslint:disable */
 /* eslint-disable */
 // @generated
@@ -191,6 +343,29 @@ export interface UpdateSingleProductVariables {
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
+export enum PasswordAuthErrorCode {
+  FAILURE = "FAILURE",
+  IDENTITY_NOT_FOUND = "IDENTITY_NOT_FOUND",
+  MULTIPLE_IDENTITY_MATCHES = "MULTIPLE_IDENTITY_MATCHES",
+  SECRET_MISMATCH = "SECRET_MISMATCH",
+  SECRET_NOT_SET = "SECRET_NOT_SET",
+}
+
+export enum PasswordResetRedemptionErrorCode {
+  FAILURE = "FAILURE",
+  IDENTITY_NOT_FOUND = "IDENTITY_NOT_FOUND",
+  MULTIPLE_IDENTITY_MATCHES = "MULTIPLE_IDENTITY_MATCHES",
+  TOKEN_EXPIRED = "TOKEN_EXPIRED",
+  TOKEN_MISMATCH = "TOKEN_MISMATCH",
+  TOKEN_NOT_SET = "TOKEN_NOT_SET",
+  TOKEN_REDEEMED = "TOKEN_REDEEMED",
+}
+
+export enum PasswordResetRequestErrorCode {
+  IDENTITY_NOT_FOUND = "IDENTITY_NOT_FOUND",
+  MULTIPLE_IDENTITY_MATCHES = "MULTIPLE_IDENTITY_MATCHES",
+}
 
 //==============================================================
 // END Enums and Input Objects
