@@ -3,7 +3,7 @@ import addToCart from './addToCart';
 import checkout from './checkout';
 
 // make a fake graphql tagged template literal
-const graphql = String.raw;
+const graphql = (string: TemplateStringsArray) => {return string};
 export const extendGraphqlSchema = graphQLSchemaExtension({
   typeDefs: graphql`
     type Mutation {

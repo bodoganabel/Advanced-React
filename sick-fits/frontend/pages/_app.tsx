@@ -4,10 +4,13 @@ import Page from 'components/Page';
 import Router from 'next/router';
 import withData from '../lib/withData';
 import { ApolloProvider } from '@apollo/client'
+import { CartStateProvider, useCart } from 'lib/cartState'
+
 
 // TODO: Swap with our own
 import NProgress from 'nprogress';
 import 'components/styles/nprogress.css';
+import { useUser } from 'components/User';
 
 
 Router.events.on('routeChangeStart', () => { NProgress.start() });
@@ -15,11 +18,15 @@ Router.events.on('routeChangeComplete', () => { NProgress.done() });
 Router.events.on('routeChangeError', () => { NProgress.done() });
 
 function MyApp({ Component, pageProps, apollo }: AppProps) {  
+  
   return (
     <ApolloProvider client={apollo}>
+      <CartStateProvider>
+
       <Page>
         <Component {...pageProps} />
       </Page >
+      </CartStateProvider>
     </ApolloProvider>
   );
 }
