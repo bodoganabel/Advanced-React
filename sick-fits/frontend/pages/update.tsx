@@ -18,13 +18,13 @@ const UPDATE_PRODUCT_MUTATION = gql`
   ) {
     updateProduct(
       id: $id,
-      data: {name: $name, description: $description, priceCents: $price}
+      data: {name: $name, description: $description, price: $price}
       )
       {
       id
       name
       description
-      priceCents
+      price
     }
   }
 `
@@ -76,7 +76,7 @@ export default function UpdateProduct(props) {
 
         
         <label htmlFor="price">Price</label>
-        <input required type="number" name="priceCents" id="priceCents" placeholder="priceCents" value={inputs.priceCents} onChange={handleChange} />
+        <input required type="number" name="price" id="price" placeholder="price" value={inputs.price} onChange={handleChange} />
         
         <label htmlFor="description">Description</label>
         <textarea name="description" id="description" placeholder="description" value={inputs.description} onChange={handleChange} />

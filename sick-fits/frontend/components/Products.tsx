@@ -13,7 +13,7 @@ export const ALL_PRODUCTS_QUERY = gql`
       name
       description
       status
-      priceCents
+      price
       photo{
         image {publicUrlTransformed}
         altText

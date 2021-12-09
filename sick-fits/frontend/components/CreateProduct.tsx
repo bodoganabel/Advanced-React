@@ -14,7 +14,7 @@ export default function CreateProduct() {
   const CREATE_PRODUCT_MUTATION = gql`
   mutation CreateProduct(
     $name: String!,
-    $priceCents: Int!,
+    $price: Int!,
     $description: String!,
     $image: Upload,
    ) {
@@ -22,7 +22,7 @@ export default function CreateProduct() {
       name: $name,
       description: $description,
       status: "AVAILABLE",
-      priceCents: $priceCents,
+      price: $price,
       photo: {
         create: {
           image: $image,
@@ -33,7 +33,7 @@ export default function CreateProduct() {
       id
       name
       description
-      priceCents
+      price
     }
   }`;
 
@@ -41,7 +41,7 @@ export default function CreateProduct() {
   const { inputs, handleChange, clearForm, resetForm } = useForm({
     name: 'TestName',
     image:'',
-    priceCents: 3400,
+    price: 3400,
     description: 'Test description',
   });
 
@@ -71,7 +71,7 @@ export default function CreateProduct() {
 
         
         <label htmlFor="price">Price</label>
-        <input required type="number" name="priceCents" id="priceCents" placeholder="priceCents" value={inputs.priceCents} onChange={handleChange} />
+        <input required type="number" name="price" id="price" placeholder="price" value={inputs.price} onChange={handleChange} />
         
         <label htmlFor="description">Description</label>
         <textarea name="description" id="description" placeholder="description" value={inputs.description} onChange={handleChange} />

@@ -6,7 +6,7 @@ query SingleItem($id: ID!){
     id: $id
   }) {
     name
-    priceCents
+    price
     description
     photo {
       altText

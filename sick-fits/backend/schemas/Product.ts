@@ -29,7 +29,7 @@ export const Product = list({
         createView: { fieldMode: 'hidden' },
       },
     }),
-    priceCents: integer(),
+    price: integer(),
     photo: relationship({
       ref: 'ProductImage.product',
       ui: {
@@ -43,7 +43,7 @@ export const Product = list({
   },
   ui: {
     listView: {
-      initialColumns: ['name','status','photo','priceCents', 'description', ]
+      initialColumns: ['name','status','photo','price', 'description', ]
     }
   }
 })

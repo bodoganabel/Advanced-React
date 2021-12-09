@@ -4,6 +4,28 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: addToCartMutation
+// ====================================================
+
+export interface addToCartMutation_addToCart {
+  __typename: "CartItem";
+  id: string;
+}
+
+export interface addToCartMutation {
+  addToCart: addToCartMutation_addToCart | null;
+}
+
+export interface addToCartMutationVariables {
+  id: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: CreateProduct
 // ====================================================
 
@@ -12,7 +34,7 @@ export interface CreateProduct_createProduct {
   id: string;
   name: string | null;
   description: string | null;
-  priceCents: number | null;
+  price: number | null;
 }
 
 export interface CreateProduct {
@@ -24,7 +46,7 @@ export interface CreateProduct {
 
 export interface CreateProductVariables {
   name: string;
-  priceCents: number;
+  price: number;
   description: string;
   image?: any | null;
 }
@@ -102,7 +124,7 @@ export interface AllProducts_allProducts {
   name: string | null;
   description: string | null;
   status: string | null;
-  priceCents: number | null;
+  price: number | null;
   photo: AllProducts_allProducts_photo | null;
 }
 
@@ -269,7 +291,7 @@ export interface CurrentUserQuery_authenticatedItem_cart_product {
   __typename: "Product";
   id: string;
   name: string | null;
-  priceCents: number | null;
+  price: number | null;
   description: string | null;
   photo: CurrentUserQuery_authenticatedItem_cart_product_photo | null;
 }
@@ -316,7 +338,7 @@ export interface SingleItem_Product_photo {
 export interface SingleItem_Product {
   __typename: "Product";
   name: string | null;
-  priceCents: number | null;
+  price: number | null;
   description: string | null;
   photo: SingleItem_Product_photo | null;
 }
@@ -346,7 +368,7 @@ export interface UpdateSingleProduct_updateProduct {
   id: string;
   name: string | null;
   description: string | null;
-  priceCents: number | null;
+  price: number | null;
 }
 
 export interface UpdateSingleProduct {

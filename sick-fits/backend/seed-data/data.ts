@@ -10,7 +10,7 @@ export const products = [
     name: 'Yeti Hondo',
     description: 'soo nice',
     status: 'AVAILABLE',
-    priceCents: 3423,
+    price: 3423,
     photo: {
       id: '5dfbed262849d7961377c2c0',
       "filename": "hondo.jpg",
@@ -49,7 +49,7 @@ export const products = [
     name: 'Airmax 270',
     description: 'Great shoes!',
     status: 'AVAILABLE',
-    priceCents: 5234,
+    price: 5234,
     photo: {
       "id": "5dfbed262849d7961377c2c0",
       "filename": "hondo.jpg",
@@ -88,7 +88,7 @@ export const products = [
     name: 'KITH Hoodie',
     description: 'Love this hoodie',
     status: 'AVAILABLE',
-    priceCents: 23562,
+    price: 23562,
     photo: {
       "id": "61951df43cc9a8435020e156",
       "filename": "kith-hoodie.jpg",
@@ -128,7 +128,7 @@ export const products = [
     name: 'Fanorak',
     description: 'Super hip. Comes in a number of colours',
     status: 'AVAILABLE',
-    priceCents: 252342,
+    price: 252342,
     photo: {
       id: "61951e063cc9a8435020e157",
       "filename": "TNF-fanorak.png",
@@ -167,7 +167,7 @@ export const products = [
     name: 'Nike Vapormax',
     description: 'Kind of squeaky on some floors',
     status: 'AVAILABLE',
-    priceCents: 83456,
+    price: 83456,
     photo: {
       id: "61951e143cc9a8435020e158",
       "filename": "vapormax.jpg",
@@ -206,7 +206,7 @@ export const products = [
     name: 'Yeti Cooler',
     description: 'Who spends this much on a cooler?!',
     status: 'AVAILABLE',
-    priceCents: 75654,
+    price: 75654,
     photo: {
       id: "61951e223cc9a8435020e159",
       "filename": "coral-yeti.jpg",
@@ -245,7 +245,7 @@ export const products = [
     name: 'Naked and Famous Denim',
     description: 'Japanese Denim, made in Canada',
     status: 'AVAILABLE',
-    priceCents: 10924,
+    price: 10924,
     photo: {
       id: "61951e303cc9a8435020e15a",
       "filename": "naked-and-famous-denim.jpg",
@@ -284,7 +284,7 @@ export const products = [
     name: 'Rimowa Luggage',
     description: 'S T E A L T H',
     status: 'AVAILABLE',
-    priceCents: 47734,
+    price: 47734,
     photo: {
       id: "61951e3b3cc9a8435020e15b",
       "filename": "rimowa.png",
@@ -323,7 +323,7 @@ export const products = [
     name: 'Black Hole ',
     description: 'Outdoorsy ',
     status: 'AVAILABLE',
-    priceCents: 4534,
+    price: 4534,
     photo: {
       id: "61951e4e3cc9a8435020e15c",
       "filename": "patagonia black hole.jpg",
@@ -362,7 +362,7 @@ export const products = [
     name: 'Nudie Belt',
     description: 'Sick design',
     status: 'AVAILABLE',
-    priceCents: 5234,
+    price: 5234,
     photo: {
       id: "61951e5b3cc9a8435020e15d",
       "filename": "nudie-belt.jpg",
@@ -401,7 +401,7 @@ export const products = [
     name: 'Goose',
     description: 'Keep warm.',
     status: 'AVAILABLE',
-    priceCents: 74544,
+    price: 74544,
     photo: {
       id: "61951e6f3cc9a8435020e15e",
       "filename": "canada-goose.jpg",
@@ -440,7 +440,7 @@ export const products = [
     name: 'Ultraboost',
     description: 'blacked out',
     status: 'AVAILABLE',
-    priceCents: 6344,
+    price: 6344,
     photo: {
       id: "61951e803cc9a8435020e15f",
     "filename": "ultra-boost.jpg",

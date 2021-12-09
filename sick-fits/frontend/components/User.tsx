@@ -14,7 +14,7 @@ export const CURRENT_USER_QUERY = gql`
                     product {
                         id
                         name
-                        priceCents
+                        price
                         description
                         photo {
                             image {

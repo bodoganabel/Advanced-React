@@ -5,7 +5,7 @@ import { Title } from './styles/Title.js'
 import PriceTag from './styles/PriceTag'
 import {formatMoney} from 'lib/formatMoney'
 import DeleteProduct from './DeleteProduct'
-
+import AddToCart from './AddToCart';
 export default function Product({ product }) {
   return (
     <ItemStyles>
@@ -15,7 +15,7 @@ export default function Product({ product }) {
       <Title>
         <Link href={`/product/${product.id}`} >{product?.name || '-'}</Link>
       </Title>
-      <PriceTag>{formatMoney(product.priceCents)}</PriceTag>
+      <PriceTag>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
       <div className="buttonList">
         <Link href={
@@ -25,7 +25,8 @@ export default function Product({ product }) {
               id: product.id,
             }
           }}>Edit ✏</Link>
-        <DeleteProduct id={product.id}>Delete</DeleteProduct>
+        <AddToCart id={ product.id }></AddToCart>
+        <DeleteProduct id={ product.id }>Delete</DeleteProduct>
       </div>
     </ItemStyles>
 
