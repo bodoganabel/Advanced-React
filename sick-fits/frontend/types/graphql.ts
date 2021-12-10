@@ -146,6 +146,31 @@ export interface AllProductsVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: removeFromCart
+// ====================================================
+
+export interface removeFromCart_deleteCartItem {
+  __typename: "CartItem";
+  id: string;
+}
+
+export interface removeFromCart {
+  /**
+   *  Delete a single CartItem item by ID. 
+   */
+  deleteCartItem: removeFromCart_deleteCartItem | null;
+}
+
+export interface removeFromCartVariables {
+  id: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: requestResetMutation
 // ====================================================
 

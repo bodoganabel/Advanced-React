@@ -4,6 +4,7 @@ import NavStyles from 'components/styles/NavStyles';
 import { useUser } from './User';
 import SignOut from './SignOut';
 import { useCart } from 'lib/cartState';
+import CartCount from './CartCount';
 
 
 export default function Nav() {
@@ -14,11 +15,18 @@ export default function Nav() {
       <Link href="/products">Products</Link>
       {user && (<>
         <Link href="/sell">Sell</Link>
-        <Link href="/orders">Orders</Link>
-        <Link href="/account">Account</Link>
-        <button type="button" onClick={ openCart}>My Cart</button>
-        <Link href="/cart">Cart</Link>
-        <SignOut />
+          <Link href="/orders">Orders</Link>
+          <Link href="/account">Account</Link>
+          <SignOut />
+          <button type="button" onClick={openCart}>
+            My Cart
+            <CartCount
+              count={user.cart.reduce(
+                (tally, cartItem) => tally + cartItem.quantity,
+                0
+              )}
+            />
+          </button>
       </>)}
       {!user && (<>
         <Link href="/signin">Sign In</Link>
