@@ -1,11 +1,9 @@
-import React from 'react'
 import Link from 'next/link';
-import NavStyles from 'components/styles/NavStyles';
-import { useUser } from './User';
-import SignOut from './SignOut';
-import { useCart } from 'lib/cartState';
+import { useCart } from '../lib/cartState';
 import CartCount from './CartCount';
-
+import SignOut from './SignOut';
+import NavStyles from './styles/NavStyles';
+import { useUser } from './User';
 
 export default function Nav() {
   const user = useUser();
@@ -13,8 +11,9 @@ export default function Nav() {
   return (
     <NavStyles>
       <Link href="/products">Products</Link>
-      {user && (<>
-        <Link href="/sell">Sell</Link>
+      {user && (
+        <>
+          <Link href="/sell">Sell</Link>
           <Link href="/orders">Orders</Link>
           <Link href="/account">Account</Link>
           <SignOut />
@@ -22,17 +21,19 @@ export default function Nav() {
             My Cart
             <CartCount
               count={user.cart.reduce(
-                (tally, cartItem) => tally + cartItem.quantity,
+                (tally, cartItem) =>
+                  tally + (cartItem.product ? cartItem.quantity : 0),
                 0
               )}
             />
           </button>
-      </>)}
-      {!user && (<>
-        <Link href="/signin">Sign In</Link>
-      </>)}
-      
-
+        </>
+      )}
+      {!user && (
+        <>
+          <Link href="/signin">Sign In</Link>
+        </>
+      )}
     </NavStyles>
-  )
+  );
 }

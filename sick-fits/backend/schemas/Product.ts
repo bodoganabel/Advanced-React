@@ -1,5 +1,6 @@
 import { integer, relationship, select, text } from "@keystone-next/fields";
 import { list } from "@keystone-next/keystone/schema";
+import { rules, isSignedIn } from '../access';
 
 enum EProductStatuses {
   DRAFT = 'DRAFT',
@@ -9,7 +10,12 @@ enum EProductStatuses {
 
 export const Product = list({
   // TODO:
-  // access:
+  access: {
+    create: isSignedIn,
+    read: rules.canReadProducts,
+    update: rules.canManageProducts,
+    delete: rules.canManageProducts,
+  },
   fields: {
     name: text({ isRequired: true }),
     description: text({

@@ -1,12 +1,11 @@
-import { useCart } from 'lib/cartState';
-import React from 'react'
-import CartStyles from './styles/CartStyles';
-import Supreme from './styles/Supreme';
-import { useUser } from './User';
-import CloseButton from './styles/CloseButton';
-import { formatMoney } from 'lib/formatMoney';
 import styled from 'styled-components';
+import CartStyles from './styles/CartStyles';
+import CloseButton from './styles/CloseButton';
+import Supreme from './styles/Supreme';
+import formatMoney from '../lib/formatMoney';
+import { useUser } from './User';
 import calcTotalPrice from '../lib/calcTotalPrice';
+import { useCart } from '../lib/cartState';
 import RemoveFromCart from './RemoveFromCart';
 import { Checkout } from './Checkout';
 
@@ -49,15 +48,14 @@ function CartItem({ cartItem }) {
 }
 
 export default function Cart() {
-  
   const me = useUser();
-  const {cartOpen, closeCart, openCart, toggleCart} = useCart();
-  if(!me) return <>Unauthenticated!</>
+  const { cartOpen, closeCart } = useCart();
+  if (!me) return null;
   return (
     <CartStyles open={cartOpen}>
       <header>
         <Supreme>{me.name}'s Cart</Supreme>
-        <CloseButton onClick={closeCart}>x</CloseButton>
+        <CloseButton onClick={closeCart}>&times;</CloseButton>
       </header>
       <ul>
         {me.cart.map((cartItem) => (
@@ -68,7 +66,6 @@ export default function Cart() {
         <p>{formatMoney(calcTotalPrice(me.cart))}</p>
         <Checkout />
       </footer>
-      
     </CartStyles>
-  )
+  );
 }

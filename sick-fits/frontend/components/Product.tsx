@@ -3,7 +3,7 @@ import React from 'react'
 import { ItemStyles } from './styles/ItemStyles.js'
 import { Title } from './styles/Title.js'
 import PriceTag from './styles/PriceTag'
-import {formatMoney} from 'lib/formatMoney'
+import formatMoney from 'lib/formatMoney'
 import DeleteProduct from './DeleteProduct'
 import AddToCart from './AddToCart';
 export default function Product({ product }) {
